@@ -17,7 +17,7 @@ public:
     Cache(int cap) { capacity = cap; }
     virtual void put(int key, int value) = 0;
     virtual int get(int key) = 0;
-    ~Cache() {} 
+    virtual ~Cache() {} 
 };
 
 class LRUCache : public Cache {
@@ -33,8 +33,8 @@ class LRUCache : public Cache {
     void insertAtHead(Node* node) {
         node->next = head->next;
         node->prev = head;
-        head->next = node; 
         head->next->prev = node; 
+        head->next = node; 
     }
 
 public:
