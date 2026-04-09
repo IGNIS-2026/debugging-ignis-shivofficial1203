@@ -14,7 +14,7 @@ int* processArray(int *arr, int n, int k, int *maxSum) {
     for(int i = 0; i < k; i++)
         currentSum += reversed[i] ;
 
-    *maxSum = currentSum;
+    *maxSum = currentSum
 
     for(int i = k; i < n; i++) {
         currentSum += reversed[i] - reversed[i - k];
