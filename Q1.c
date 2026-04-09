@@ -34,7 +34,7 @@ int main() {
     
     int max_sum; 
 
-    int *res = processArray(arr, n, k, max_sum);
+    int *res = processArray(arr, n, k, &max_sum);
 
     printf("Max sum of subarray of size %d is: %d\n", k, *max_sum);
     
