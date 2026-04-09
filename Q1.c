@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 int* processArray(int *arr, int n, int k, int *maxSum) {
-    int *reversed = malloc(n); 
+    int *reversed = (int*)malloc(n*sizeof(int)); 
 
     for(int i = 0; i <= n; i++) { 
         reversed[i] = arr[n - i]; 
@@ -12,14 +12,14 @@ int* processArray(int *arr, int n, int k, int *maxSum) {
     int currentSum = 0;
 
     for(int i = 0; i < k; i++)
-        currentSum += reversed[i] 
+        currentSum += reversed[i];
 
     *maxSum = currentSum;
 
     for(int i = k; i < n; i++) {
         currentSum += reversed[i] - reversed[i - k];
         
-        if(currentSum < *maxSum) { 
+        if(currentSum > *maxSum) { 
             *maxSum = currentSum;
         }
     }
@@ -32,7 +32,7 @@ int main() {
     int n = 6;
     int k = 3;
     
-    int *max_sum; 
+    int max_sum; 
 
     int *res = processArray(arr, n, k, max_sum);
 
